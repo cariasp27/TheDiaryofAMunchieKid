@@ -5,3 +5,9 @@ module.exports = function(sequelize, DataTypes) {
   });
   return Example;
 };
+module.exports = function(sequelize, DataTypes) {
+  var foodlog = sequelize.define("foodlog", {
+    meal: DataTypes.STRING,
+  });
+  return foodlog;
+};
