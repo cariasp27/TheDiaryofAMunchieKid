@@ -1,76 +1,22 @@
-body { 
-  background: url("images/background.jpg");
-  background-size: cover;
-  position: fixed;
-
+body {
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif;
+   background: url (images/salmon) no-repeat;
+   background-size: cover;
 }
-.card {
-  line-height: 1rem;
+.login-box {
+   width: 280px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
 }
-#biog {
-  height: fit-content;
-  line-height: 1rem;
-  font-size: 25%;
-}
-#inputfields {
-  width: 25%;
-  margin-right: 0px;
-}
-.ui.input>input {
-
-  font-family: 'Permanent Marker', cursive;
-  margin-right: 2%;
-
- }
-
- .ui.container {
-    padding-left: -1%;
-    padding-top: 3%;
-    margin-left: 0;
- }
-.ui.input.focus {
-     padding-bottom: 2%;
-     margin-right: 2%;
-  }
-
-  .ui.inverted.segment > .ui.inverted.button.blue.button {
-     font-family: inherit;
-     
-  }
-
-  .ui.inverted.button.blue.button {
-     margin-bottom: 2%;
-     margin-top: 2%;
-     Margin-left:2%;
-     background: black;
-     color: #20a3d4;
-     font-family: inherit;
-  }
-
-  .ui.inverted.button.blue.button:hover{
-     background: #20a3d4;
-     color: white;
-  }
-  #select-location{
-     visibility: hidden;
-  }
-  input {
-     margin: 25px;
-  }
-  #select-artist{
-     visibility: hidden;
-  }
-  #where {
-     visibility: hidden;
-  }
-  #keyword {
-     visibility: hidden;
-  }
-  #artist-input {
-     visibility: hidden;
-  }
-.ui.centered.large.image {
-   position: fixed;
-   margin-top: -25%;
-   margin-left: 33%;
+.login-box h1{
+   float: left;
+   font-size: 40px;
+   border-bottom: 6px solid;
+   margin-bottom: 50px;
+   padding: 13px 0;
 }
