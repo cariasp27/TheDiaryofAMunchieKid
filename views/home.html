@@ -6,33 +6,23 @@
   <link rel="stylesheet" type = "text/css" href="../public/styles/style.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
-        <table>
-        <thead>
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-            $connect = mysql_connect("localhost","root", "root");
-            if (!$connect) {
-                die(mysql_error());
-            }
-            mysql_select_db("apploymentdevs");
-            $results = mysql_query("SELECT * FROM demo LIMIT 10");
-            while($row = mysql_fetch_array($results)) {
-            ?>
-                <tr>
-                    <td><?php echo $row['Id']?></td>
-                    <td><?php echo $row['Name']?></td>
-                </tr>
 
-            <?php
-            }
-            ?>
-            </tbody>
-            </table>
-    </body>
-</html>
+<body>
+<div class="bodyhome"></div>
+  <h4>Notes</h4>
+  <div class="lines"></div>
+  <ul id="List">
+    <li>Eat Breakfeast</li>
+    <li>Feed Pugsly, the cow</li>
+    <li>Sit Down</li>
+    <li>Eat lunch</li>
+    <li>Call mom</li>
+    <li>Tweet about feeding my cow, pugsly</li>
+    <li>Join a hangout in google+</li>
+    <li>Prepare Dinner</li>
+    <li>Eat Dinner</li>
+    <li>Get ready for bed</li>
+    <li>Go to bed</li>
+  </ul>
+
+</body>
