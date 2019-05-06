@@ -4,20 +4,70 @@
   <meta charset ="utf-8">
   <title>MunchMuch Log in</title>
   <link rel="stylesheet" type = "text/css" href="../public/styles/style.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <div class = "login-box">
-      <h1>Login</h1>
-      <div class="textbox">
-        <input type="text" placeholder="Username" name= " " value= " ">
-      </div>
+    <h1>Food Journal Thing</h1>
+    <p>content of shit that does shit lets put some pics or some shit in here thatd be cool ya </p>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+      
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Create an account!</h1>
+          <label>Email</label>
+          <input type="text" placeholder="e-mail address" name="email" id="email">
+          <label>First Name</label>
+          <input type="text" placeholder="First Name" name="first" id="first">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last Name" name="last" id="last">
+          <label>Create Password</label>
+          <input type="text" placeholder="Create Password" name="password" id="password">
+          <label>Confirm Password</label>
+          <input type="text" placeholder="Confirm Password" name="confirm" id="confirm">
+          <button type="submit" class="btn btn-success pull right">Sign Up!</button>
 
-      <div class=  "textbox">
-          <input type="text" placeholder="Password" name= " " value= " ">
         </div>
-        <button type="button">Sign On</button>
+      
       </div>
+    <div class="container">
+      <h1>Sign In</h1>
+    <form action="/authenticate" method="POST">
+      <label>Username</label>
+        <input type="text" placeholder="" name="username" id= "username">
+      <label>Password</label>
+      <input type="text" placeholder="" name="password" id= "password">
+      <div class="form-actions">
+        <button type="submit" class="btn btn-success pull right">Sign In</button>
+        <button class="btn btn-success"id="myBtn">Sign Up Now!
+          </button>
+      </div>
+      
   </body>
-
-</head>
+<script>// Get the modal
+    var modal = document.getElementById('myModal');
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }</script>
 </html>
