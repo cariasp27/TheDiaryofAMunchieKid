@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "Pikapee889900seven",
+    "database": "MealLogger",
     "host": "localhost",
     "dialect": "mysql"
   },
