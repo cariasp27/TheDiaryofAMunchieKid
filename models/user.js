@@ -1,15 +1,11 @@
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
-      username: {type: DataTypes.STRING, unique: true, validate: {notNull: true, notEmpty: true}},
-      password: {type: DataTypes.STRING, validate: {notNull: true, notEmpty: true}}
+
+module.exports = function(sequelize, Sequelize) {
+
+	var User = sequelize.define('user', {
+		username: {type:Sequelize.TEXT},
+		password : {type: Sequelize.STRING,allowNull: false },
 });
-  
-    User.associate = function(models) {
-      models.User.hasMany(models.meals, {
-        onDelete: "cascade"
-      });
-    };
-  
-    return User;
-  };
-  
+
+	return User;
+
+}
