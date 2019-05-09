@@ -7,8 +7,51 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Food Journal Thing</h1>
-    <p>content of shit that does shit lets put some pics or some shit in here thatd be cool ya </p>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">MunchMuch?</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/login.html">Sign-in/ Sign-up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/home.html">Meal Log<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/meal.html">Journal</a>
+            
+              </li>
+              
+              </li>
+         
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+        <div class="row">
+          <div class="col-md-12">
+
+       
+
+<div class="jumbotron" style="background-color: forestgreen;">
+      <h1 class="text-center"><span class="fa fa-fire"></span>Welcome to Munch Much!</h1>
+      <h2 class="text-center">Keep track of what you are putting into your body! </h2>
+      <br>
+      <br>
+      <p class="text-center">
+        Here is your one place to go to keep track and log all of your meals as well as planning what you eat for the week. With our Journal and quick add features you will be in complete control of your diet! 
+      </p>
+    </div>
+  </div>
+  </div>
+</div>    
       <!-- The Modal -->
       <div id="myModal" class="modal">
       
@@ -29,12 +72,21 @@
       </div>
     <div class="container">
       <h1>Sign In</h1>
-      <form id="signin" name="signin" method="post" action="signin">
-        <label for="username">Username</label>
-        <input class="text" name="username" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" type="submit" value="Sign In" />
+      <form>
+          <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">E-mail</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputemail" placeholder="email@address.com">
+              </div>
+            </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+
+        <input class="btn btn-success" type="submit" value="Sign In" />
       </form>
       <button class="btn btn-success"id="myBtn">Sign Up Now!
       </button>
