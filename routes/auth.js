@@ -21,25 +21,38 @@ app.get('/dashboard',isLoggedIn, authController.dashboard);
 app.get('/logout',authController.logout);
 
 
+
+
 app.post('/signin', passport.authenticate('local-signin',  { successRedirect: '/dashboard',
                                                     failureRedirect: '/signin'}
                                                     ));
+app.get('/api/allmeals', isLoggedIn, function(req,res){
+db.Meal.findAll({where: {userid: req.user.id}}).then(function(dbmeals){
+    res.json(dbmeals);
+})
+});
 
-app.post('/api/newmeal', function(req, res) {
-    db.Meal.create(req.body).then(function(dbmeal){
-        res.json(dbmeal);
+app.post('/api/newmeal',isLoggedIn, function(req, res) {
+    console.log(req.user.id);
+    var reqwid = { 
+        meal: req.body.meal,
+        food: req.body.food,
+        userId: req.user.id
+    };
+    db.Meal.create(reqwid).then(function(dbmeal){
+        res.redirect('/home')
     });
 });
 
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
+    // console.log(req);
+    if (req.isAuthenticated()){
         return next();
-
-    res.redirect('/signin');
+    }else {res.redirect('/signin')};
 }
 
 
-}
+};
 
 
 

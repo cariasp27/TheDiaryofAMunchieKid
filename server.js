@@ -22,11 +22,6 @@
 
     
 
-    app.get('/', function(req, res){
-	  res.send('Welcome to Passport with Sequelize');
-	});
-
-
 	//Models
     var models = require("./models");
     //Routes
@@ -36,8 +31,9 @@
     //load passport strategies
     require('./config/passport/passport.js')(passport,models.user);
 
-
-   var syncOptions = { force: false };
+  // if true: destroys database to create new one.
+  // if false: uses existing data. ALWAYS FALSE
+  var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

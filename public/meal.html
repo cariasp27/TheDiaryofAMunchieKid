@@ -38,9 +38,27 @@
         </nav>
         <form id="newmeal" name="newmeal" method="POST" action="/api/newmeal">
           <label for="meal">Meal:</label>
-          <input class="text" name="meal" type="text" />
+          <input class="text" id="meal" name="meal" type="text" />
           <label for="Food">Food</label>
-          <input name="food" type="text" />
-          <input class="btn" type="submit" value="log meal" />
+          <input name="food" id="food" type="text" />
+          <button type="submit" id="logmeal">Log Meal</button>
+          </form>
   </body>
+  <script>
+    console.log(window.location);
+// $(document).ready(function() {
+//   var newlog = $("#meal");
+//   var newfood = $("#food");
+//   var form = $("#newmeal");
+//   var newMeal =
+
+//   $(form).on("submit", function(event){
+//     $.post("/api/newmeal", newMeal, function() {
+//       location.reload();
+//     });
+
+//   });
+
+// });
+  </script>
   </html>
