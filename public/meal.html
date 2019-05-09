@@ -3,22 +3,17 @@
 <head>
   <meta charset ="utf-8">
   <title>MunchMuch Log in</title>
-  <link rel="stylesheet" type = "text/css" href="../styles/style.css">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery.js"></script>  
 </head>
   <body>
-    <form id="newmeal">
-      <div class="form-group">
-        <label for="meal">Meal:</label>
-        <input placeholder="Meal" type="text" class="form-control" id="meal">
-        <br />
-        <label for="food">Food:</label>
-        <textarea placeholder="Food" class="form-control" rows="10" id="food"></textarea>
-        <br />
-        <button type="submit" class="btn btn-success submit">Submit</button>
-      </div>
+    <form id="newmeal" name="newmeal" method="post" action="/newmeal">
+      <label for="meal">Meal:</label>
+      <input class="text" name="meal" type="text" />
+      <label for="Food">Food</label>
+      <input name="food" type="text" />
+      <input class="btn" type="submit" value="Log Meal" />
     </form>
-    <script src="/js/meal.js" type="text/javascript"></script>
   </body>
   </html>

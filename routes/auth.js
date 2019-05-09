@@ -1,5 +1,5 @@
 var authController = require('../controllers/authcontroller.js');
-
+var db = require("../models");
 module.exports = function(app,passport){
 
 app.get('/signup', authController.signup);
@@ -23,6 +23,11 @@ app.post('/signin', passport.authenticate('local-signin',  { successRedirect: '/
                                                     failureRedirect: '/signin'}
                                                     ));
 
+app.post('/newmeal', function(req, res) {
+    db.Meal.create(req.body).then(function(dbmeal){
+        res.json(dbmeal);
+    });
+});
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

@@ -5,6 +5,7 @@
     var bodyParser = require('body-parser')
     var env        = require('dotenv').config()
     var exphbs     = require('express-handlebars')
+    var PORT = process.env.PORT || 3000;
 
 
 
@@ -19,11 +20,6 @@
     app.use(passport.initialize());
     app.use(passport.session()); // persistent login sessions
 
-
-     //For Handlebars
-    app.set('views', './views')
-    app.engine('hbs', exphbs({extname: '.hbs'}));
-    app.set('view engine', '.hbs');
     
 
     app.get('/', function(req, res){
@@ -33,8 +29,6 @@
 
 	//Models
     var models = require("./models");
-
-
     //Routes
     var authRoute = require('./routes/auth.js')(app,passport);
 
@@ -43,21 +37,24 @@
     require('./config/passport/passport.js')(passport,models.user);
 
 
-    //Sync Database
-   	models.sequelize.sync().then(function(){
-    console.log('Nice! Database looks fine')
+   var syncOptions = { force: true };
 
-    }).catch(function(err){
-    console.log(err,"Something went wrong with the Database Update!")
-    });
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
 
-
-
-	app.listen(5000, function(err){
-		if(!err)
-		console.log("Site is live"); else console.log(err)
-
-	});
+// Starting the server, syncing our models ------------------------------------/
+models.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
+});
 
 
 
