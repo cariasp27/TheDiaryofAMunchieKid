@@ -3,7 +3,7 @@
 <head>
   <meta charset ="utf-8">
   <title>MunchMuch Log in</title>
-  <link rel="stylesheet" type="text/css" href="./styles/style.css">
+  <link rel="stylesheet" type="text/css" href="../styles/style.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery.js"></script>  
 </head>
@@ -17,13 +17,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/login.html">Sign-in/ Sign-up</a>
+                <a class="nav-link" href="./login.html">Sign-in/ Sign-up</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/home.html">Meal Log<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="./home.html">Meal Log<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                 <li class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/meal.html">Journal</a>
+                 <li class="nav-link" href="./meal.html">Journal</a>
             </li>
               </li>
               
@@ -36,11 +36,11 @@
             </form>
           </div>
         </nav>
-        <form id="newmeal" name="newmeal" method="post" action="/newmeal">
+        <form id="newmeal" name="newmeal" method="POST" action="/api/newmeal">
           <label for="meal">Meal:</label>
           <input class="text" name="meal" type="text" />
           <label for="Food">Food</label>
           <input name="food" type="text" />
-          <input class="btn" type="submit" value="Log Meal" />
+          <input class="btn" type="submit" value="log meal" />
   </body>
   </html>

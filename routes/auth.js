@@ -4,6 +4,7 @@ module.exports = function(app,passport){
 
 app.get('/signup', authController.signup);
 
+app.get('/login', authController.signin)
 
 app.get('/signin', authController.signin);
 
@@ -12,6 +13,7 @@ app.post('/signup', passport.authenticate('local-signup',  { successRedirect: '/
                                                     failureRedirect: '/signup'}
                                                     ));
 
+app.get('/home', isLoggedIn, authController.home);
 
 app.get('/dashboard',isLoggedIn, authController.dashboard);
 
@@ -23,7 +25,7 @@ app.post('/signin', passport.authenticate('local-signin',  { successRedirect: '/
                                                     failureRedirect: '/signin'}
                                                     ));
 
-app.post('/newmeal', function(req, res) {
+app.post('/api/newmeal', function(req, res) {
     db.Meal.create(req.body).then(function(dbmeal){
         res.json(dbmeal);
     });

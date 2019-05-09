@@ -14,6 +14,10 @@ exports.signin = function(req,res){
 
 }
 
+exports.home = function(req, res){
+  res.sendFile(path.join(__dirname, "../public/home.html"));
+}
+
 exports.dashboard = function(req,res){
 
   res.sendFile(path.join(__dirname, "../public/meal.html"));
