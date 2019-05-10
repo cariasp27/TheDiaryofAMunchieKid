@@ -1,7 +1,12 @@
 // import controller and models
+
 var authController = require('../controllers/authcontroller.js');
 var db = require("../models");
+var moment = require('moment');
+var Sequelize = require("sequelize");
+var Op = Sequelize.Op;
 module.exports = function (app, passport) {
+   console.log(moment().format("YYYY-MM-DD"));
 
     // catchall that displays login/signup page
     app.get('/', authController.signin);
@@ -30,13 +35,29 @@ module.exports = function (app, passport) {
     }));
 
     // route for getting journal entries
-    app.get('/api/allmeals', isLoggedIn, function (req, res) {
-        db.Meal.findAll({ where: { userid: req.user.id } }).then(function (dbmeals) {
+    app.get('/api/todaysjournal', isLoggedIn, function (req, res) {
+        db.Meal.findAll({ 
+                            where: { 
+                                updatedAt: {[Op.substring]: moment().format("YYYY-MM-DD")},
+                                userid: req.user.id } }).then(function (dbmeals) {
             res.json(dbmeals);
         })
     });
+
+    app.get('/api/history/:date', isLoggedIn, function (req, res) {
+        var searchdate = req.params.date;
+        var formatdate = moment(searchdate).format("YYYY-MM-DD");
+        db.Meal.findAll({ where: {
+                    updatedAt: {[Op.substring]: formatdate },
+                    userid: req.user.id } }).then(function (dbmeals) {
+                    res.json(dbmeals);
+        })
+    });
+
+
     // route for handling new journal entry
     app.post('/api/newmeal', isLoggedIn, function (req, res) {
+        console.log(req)
         console.log(req.user.id);
         var reqwid = {
             meal: req.body.meal,

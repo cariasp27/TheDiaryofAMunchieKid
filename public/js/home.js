@@ -17,8 +17,8 @@ $(document).ready(function() {
     // This function grabs meals from the database and updates the view
     function getMeals(user) {
     
-      $.get("/api/allmeals", function(data) {
-        console.log("meals", data);
+      $.get("/api/todaysjournal", function(data) {
+        console.log("Journal Entries for Today", data);
         meals = data;
         initializeRows();
         
