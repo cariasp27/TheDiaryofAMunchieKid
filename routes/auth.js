@@ -6,15 +6,18 @@ var moment = require('moment');
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
 module.exports = function (app, passport) {
-   console.log(moment().format("YYYY-MM-DD"));
+    function isLoggedIn(req, res, next) {
+        // console.log(req);
+        if (req.isAuthenticated()) {
+            return next();
+        } else { res.redirect('/signin') };
+    }
 
-    // catchall that displays login/signup page
+    //////////////////// LOGIN ////////////////////////////
     app.get('/', authController.signin);
-
     app.get('/signin', authController.signin);
 
-
-    // route for new user
+    //////////////////// POST NEW USER ////////////////////
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/home',
         failureRedirect: '/signin'
@@ -36,10 +39,13 @@ module.exports = function (app, passport) {
 
     // route for getting journal entries
     app.get('/api/todaysjournal', isLoggedIn, function (req, res) {
-        db.Meal.findAll({ 
-                            where: { 
-                                updatedAt: {[Op.substring]: moment().format("YYYY-MM-DD")},
-                                userid: req.user.id } }).then(function (dbmeals) {
+        // var NOW = moment().format("YYYY-MM-DD");
+        db.Meal.findAll({
+            where: {
+                updatedAt: { [Op.substring]: moment().format("YYYY-MM-DD") },
+                userId: req.user.id
+            }
+        }).then(function (dbmeals) {
             res.json(dbmeals);
         })
     });
@@ -47,10 +53,13 @@ module.exports = function (app, passport) {
     app.get('/api/history', isLoggedIn, function (req, res) {
         var searchdate = req.body.date;
         var formatdate = moment(searchdate).format("YYYY-MM-DD");
-        db.Meal.findAll({ where: {
-                    updatedAt: {[Op.substring]: formatdate },
-                    userid: req.user.id } }).then(function (dbmeals) {
-                    res.json(dbmeals);
+        db.Meal.findAll({
+            where: {
+                updatedAt: { [Op.substring]: formatdate },
+                userId: req.user.id
+            }
+        }).then(function (dbmeals) {
+            res.json(dbmeals);
         })
     });
 
@@ -69,12 +78,6 @@ module.exports = function (app, passport) {
         });
     });
 
-    function isLoggedIn(req, res, next) {
-        // console.log(req);
-        if (req.isAuthenticated()) {
-            return next();
-        } else { res.redirect('/signin') };
-    }
 
 
 };
