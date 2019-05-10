@@ -4,7 +4,9 @@ var db = require("../models");
 module.exports = function (app, passport) {
 
     // catchall that displays login/signup page
-    app.get('*', authController.signin);
+    app.get('/', authController.signin);
+
+    app.get('/signin', authController.signin);
 
 
     // route for new user
