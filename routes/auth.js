@@ -44,8 +44,8 @@ module.exports = function (app, passport) {
         })
     });
 
-    app.get('/api/history/:date', isLoggedIn, function (req, res) {
-        var searchdate = req.params.date;
+    app.get('/api/history', isLoggedIn, function (req, res) {
+        var searchdate = req.body.date;
         var formatdate = moment(searchdate).format("YYYY-MM-DD");
         db.Meal.findAll({ where: {
                     updatedAt: {[Op.substring]: formatdate },

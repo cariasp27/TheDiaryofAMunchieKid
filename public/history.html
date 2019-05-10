@@ -15,9 +15,8 @@
     <div class="row">
         <div class="col-md-10">
             <div class="journal">
-                <h1 class="text-center"><span class="fa fa-fire"></span> Add a Meal!</h1>
                 <hr>
-                <h2 class="text-center">Log your meals to your personalized journal here! </h2>
+                <h2 class="text-center">History</h2>
                 <br>
                 <div id="meallog"></div>
 
@@ -25,15 +24,7 @@
             </div>
         </div>
         <div class="col-md-2">
-            <center><div id="formholder">
-                <center><form id="newmeal" name="newmeal" method="POST" action="/api/newmeal">
-                    <label for="meal">Meal:</label>
-                    <input class="text" id="meal" name="meal" type="text" />
-                    <label for="Food">Food</label>
-                    <input name="food" id="food" type="text" />
-                    <button type="submit" id="logmeal">Log Meal</button>
-                </form>
-                <form id="pastjournal" name="history" method="GET" action="/api/history">
+                <form id="pastjournal" name="history">
                     <label for="pastjournal">Find Past Journal Entries</label>
                     <input type="date" name="date">
                     <button type="submit" id="pullhistory">Search</button>
@@ -44,7 +35,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
-    <script src="../js/home.js" type="text/javascript"></script>
+    <script src="../js/history.js" type="text/javascript"></script>
 </body>
 
 </html>
