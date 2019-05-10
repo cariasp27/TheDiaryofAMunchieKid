@@ -8,7 +8,7 @@ exports.signin = function(req,res){
 }
 
 exports.home = function(req, res){
-  res.sendFile(path.join(__dirname, "../public/home.html"));
+  res.sendFile(path.join(__dirname, "../public/test.html"));
 }
 
 exports.logout = function(req,res){
