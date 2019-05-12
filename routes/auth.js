@@ -26,6 +26,8 @@ module.exports = function (app, passport) {
 
     app.get('/home', isLoggedIn, authController.home);
 
+    app.get('/history', isLoggedIn, authController.history);
+
     // route for logging out
     app.get('/logout', authController.logout);
 
@@ -42,7 +44,7 @@ module.exports = function (app, passport) {
         // var NOW = moment().format("YYYY-MM-DD");
         db.Meal.findAll({
             where: {
-                updatedAt: { [Op.substring]: moment().format("YYYY-MM-DD") },
+                createdAt: { [Op.substring]: moment.utc().format("YYYY-MM-DD Z") },
                 userId: req.user.id
             }
         }).then(function (dbmeals) {
@@ -50,16 +52,18 @@ module.exports = function (app, passport) {
         })
     });
 
-    app.get('/api/history', isLoggedIn, function (req, res) {
+    app.get('/api/history/', isLoggedIn, function (req, res) {
         var searchdate = req.body.date;
+        console.log(searchdate);
         var formatdate = moment(searchdate).format("YYYY-MM-DD");
+        console.log(formatdate);
         db.Meal.findAll({
             where: {
-                updatedAt: { [Op.substring]: formatdate },
+                createdAt: { [Op.substring]: formatdate },
                 userId: req.user.id
             }
         }).then(function (dbmeals) {
-            res.json(dbmeals);
+            authController.history
         })
     });
 
