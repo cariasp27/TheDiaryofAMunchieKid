@@ -5,7 +5,8 @@
     "password": "Pikapee889900seven",
     "database": "sequelize_passport",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone": "-04:00"
   },
   "test": {
     "username": "",
