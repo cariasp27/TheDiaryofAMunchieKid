@@ -1,116 +1,88 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset ="utf-8">
+  <meta charset="utf-8">
   <title>MunchMuch Log in</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../styles/style.css">
-  </head>
-  <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">MunchMuch?</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+</head>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/login.html">Sign-in/ Sign-up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/home.html">Meal Log<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/meal.html">Journal</a>
-            <li class="nav-item">
-                <a class="nav-link" href="/Users/andreflint/TheDiaryofAMunchieKid/public/history.html">history</a>
-           </li>
-
-
-          </li>
-
-          </li>
-
-        </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </nav> -->
-
-       
-
-<div class="jumbotron bg-success">
-      <h1 class="text-center"><span class="fa fa-fire"></span>Welcome to Munch Much!</h1>
-      <h2 class="text-center">Keep track of what you are putting into your body! </h2>
-      <br>
-      <br>
-      <p class="text-center">
-        Here is your one place to go to keep track and log all of your meals as well as planning what you eat for the week. With our Journal and quick add features you will be in complete control of your diet! 
-      </p>
-    </div>
+<body>
+  <div class="jumbotron bg-success">
+    <h1 class="text-center"><span class="fa fa-fire"></span>Welcome to Munch Much!</h1>
+    <h2 class="text-center">Keep track of what you are putting into your body! </h2>
+    <br>
+    <br>
+    <p class="text-center">
+      Here is your one place to go to keep track and log all of your meals as well as planning what you eat for the
+      week. With our Journal and quick add features you will be in complete control of your diet!
+    </p>
   </div>
-  </div>
-</div>    
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-      
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <center><h1>Create an account!</h1></center>
-          <center><form id="signup" name="signup" method="post" action="/signup">
-            <label for="username">Username</label>
-            <input class="text" name="username" type="username" />
-            <label for="password">Password</label>
-            <input name="password" type="password" />
-            <input class="btn" type="submit" value="Sign Up" />
-          </form>
-        </center>
-        </div>
-      
-      </div>
-    <div id="signin">
-      <h1>Sign In</h1>
-      <center><form id="signin" name="signin" method="post" action="signin">
-        <label>Username</label>
-          <input type="text" placeholder="" name="username" id= "username">
-        <label>Password</label>
-        <input type="password" placeholder="" name="password" id= "password">
-          <input class="btn btn-success" type="submit" value="Sign In" />
-        </form>   
-        <br> 
-        <hr>
-        <button class="btn btn-success"id="myBtn">Sign Up Now!</button>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <center>
+        <h1>Create an account!</h1>
       </center>
-        
-      
-  </body>
+      <center>
+        <form id="signup" name="signup" method="post" action="/signup">
+          <label for="username">Username</label>
+          <input class="text" name="username" type="username" />
+          <label for="password">Password</label>
+          <input name="password" type="password" />
+          <input class="btn" type="submit" value="Sign Up" />
+        </form>
+      </center>
+    </div>
+
+  </div>
+  <div id="signin">
+    <h1>Sign In</h1>
+    <center>
+      <form id="signin" name="signin" method="post" action="signin">
+        <label>Username</label>
+        <input type="text" placeholder="" name="username" id="username">
+        <label>Password</label>
+        <input type="password" placeholder="" name="password" id="password">
+        <input class="btn btn-success" type="submit" value="Sign In" />
+      </form>
+      <br>
+      <hr>
+      <button class="btn btn-success" id="myBtn">Sign Up Now!</button>
+    </center>
+    </div>
+
+
+</body>
 <script>// Get the modal
-    var modal = document.getElementById('myModal');
-    
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-    
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    
-    // When the user clicks on the button, open the modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+  var modal = document.getElementById('myModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal 
+  btn.onclick = function () {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
       modal.style.display = "none";
     }
-    
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }</script>
+  }</script>
+
 </html>

@@ -1,4 +1,4 @@
-// import controller and models
+// Import controller and models
 
 var authController = require('../controllers/authcontroller.js');
 var db = require("../models");
@@ -6,6 +6,7 @@ var moment = require('moment');
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
 module.exports = function (app, passport) {
+    //////////////////// IS LOGGED IN CHECK ////////////////////////
     function isLoggedIn(req, res, next) {
         // console.log(req);
         if (req.isAuthenticated()) {
@@ -13,7 +14,7 @@ module.exports = function (app, passport) {
         } else { res.redirect('/signin') };
     }
 
-    //////////////////// LOGIN ////////////////////////////
+    //////////////////// HTML Routes ////////////////////////////
     app.get('/', authController.signin);
     app.get('/signin', authController.signin);
 
@@ -23,30 +24,24 @@ module.exports = function (app, passport) {
         failureRedirect: '/signin'
     }
     ));
-
+    //////////////////// HOME ////////////////////////////
     app.get('/home', isLoggedIn, authController.home);
 
-    app.get('/history', isLoggedIn, authController.history);
-
-    // route for logging out
+    //////////////////// LOGOUT ////////////////////////////
     app.get('/logout', authController.logout);
-
-
-
-    // route for authenticating user
+    //////////////////// SIGN IN POST ////////////////////////////
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/home',
         failureRedirect: '/signin'
     }));
-
-    // route for getting journal entries
+    //////////////////// TODAY'S JOURNAL ENTRIES////////////////////////////
     app.get('/api/todaysjournal', isLoggedIn, function (req, res) {
-        var datre = moment("2019-05-13T02:16:07.000Z").format("YYYY-MM-DD");
-        console.log(datre);
+        var datre = moment().format("YYYY-MM-DD");
+        console.log("this is the date used to find todays journal: " + datre);
         var ewe = moment.utc().format("YYYY-MM-DD hh:mm:ss");
         db.Meal.findAll({
             where: {
-                createdAt: {[Op.substring]: moment().format("YYYY-MM-DD")},
+                createdAt: { [Op.substring]: datre },
                 userId: req.user.id
             }
         }).then(function (dbmeals) {
@@ -54,11 +49,10 @@ module.exports = function (app, passport) {
             res.json(dbmeals);
         })
     });
-
-    app.get('/api/history', isLoggedIn, function (req, res) {
-        console.log(req.query)
-        
-        var searchdate = req.query.date;
+    //////////////////// SPECIFIC DATE ENTRIES ////////////////////////////
+    app.get('/api/history/:date', isLoggedIn, function (req, res) {
+        console.log(req.params.date)
+        var searchdate = req.params.date;
         console.log(searchdate);
         var formatdate = moment(searchdate).format("YYYY-MM-DD");
         console.log(formatdate);
@@ -71,9 +65,7 @@ module.exports = function (app, passport) {
             res.json(dbmeals);
         })
     });
-
-
-    // route for handling new journal entry
+    //////////////////// POST NEW MEAL ////////////////////////////
     app.post('/api/newmeal', isLoggedIn, function (req, res) {
         console.log(req)
         console.log(req.user.id);
@@ -86,13 +78,4 @@ module.exports = function (app, passport) {
             res.redirect('/home')
         });
     });
-
-
-
 };
-
-
-
-
-
-

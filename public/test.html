@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MunchMuch Log in</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>MunchMuch</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
 </head>
@@ -17,7 +18,8 @@
                 <h1 class="text-center"><span class="fa fa-fire"></span> Add a Meal!</h1>
                 <h2 class="text-center">Log your meals to your personalized journal here! </h2>
                 <hr>
-                    <center><form id="newmeal" name="newmeal" method="POST" action="/api/newmeal">
+                <center>
+                    <form id="newmeal" name="newmeal" method="POST" action="/api/newmeal">
                         <label for="meal">Meal:</label>
                         <input class="text" id="meal" name="meal" type="text" />
                         <label for="Food">Food</label>
@@ -28,7 +30,7 @@
                 <br>
                 <div id="meallog"></div>
 
-                
+
             </div>
         </div>
         <div class="col-md-6">
@@ -36,14 +38,16 @@
                 <h1 class="text-center"><span class="fa fa-fire"></span> Find a Past Journal!</h1>
                 <h2 class="text-center">Find Past Journal Entries</h2>
                 <hr>
-                <center><form id="pastjournal" name="history">
-                    <input type="date" name="date">
-                    <button type="submit" id="pullhistory">Search</button>
-                </form></center>
+                <center>
+                    <form id="pastjournal" name="history">
+                        <input type="date" name="date" id="searchdate">
+                        <button type="submit" id="pullhistory">Search</button>
+                    </form>
+                </center>
                 <br>
                 <div id="pastlog"></div>
 
-                
+
             </div>
         </div>
     </div>

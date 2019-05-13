@@ -1,17 +1,11 @@
-
-//load bcrypt
 var bCrypt = require('bcrypt-nodejs');
-
 module.exports = function (passport, user) {
-
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
-
-
+  // used to serialize user
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
-
 
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
@@ -25,7 +19,6 @@ module.exports = function (passport, user) {
     });
 
   });
-
 
   passport.use('local-signup', new LocalStrategy(
 
@@ -61,25 +54,13 @@ module.exports = function (passport, user) {
             if (!newUser) {
               return done(null, false);
             }
-
             if (newUser) {
               return done(null, newUser);
-
             }
-
-
           });
         }
-
-
       });
-
-
-
     }
-
-
-
   ));
 
   //LOCAL SIGNIN

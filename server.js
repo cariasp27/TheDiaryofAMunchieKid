@@ -14,9 +14,7 @@
 // Serve static content for the app from "/public" 
   app.use(express.static("public"));
 
-////////// Passport Setup //////////////////////////////////////////
-
-  //////// Session Setup ///////////
+////////// Passport & Session Setup //////////////////////////////////////////
   app.use(session({ 
     secret: 'keyboard cat',
     resave: true,

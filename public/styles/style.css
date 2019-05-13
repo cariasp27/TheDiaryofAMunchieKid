@@ -32,6 +32,11 @@ body {
   overflow: auto;
   height: 400px;
 }
+#pastlog {
+  padding: 10px;
+  overflow: auto;
+  height: 400px;
+}
 #formholder {
   margin-top: 75%;
 }
