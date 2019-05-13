@@ -110,6 +110,9 @@ border-bottom: 1px solid black;
  h2 {
    font-size: 20px;
  }
+ h3 {
+   font-size: 15px;
+ }
  h4 {
    color:black;
    font-size: smaller;
