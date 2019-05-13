@@ -1,40 +1,38 @@
-// Import controller and models
-
+//////////////////// IMPORTS ////////////////////////////////////////////////////////////////////
 var authController = require('../controllers/authcontroller.js');
 var db = require("../models");
 var moment = require('moment');
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
 module.exports = function (app, passport) {
-    //////////////////// IS LOGGED IN CHECK ////////////////////////
+    //////////////////// IS LOGGED IN CHECK ////////////////////////////////////////////////////////////////
     function isLoggedIn(req, res, next) {
         // console.log(req);
         if (req.isAuthenticated()) {
             return next();
         } else { res.redirect('/signin') };
     }
-
-    //////////////////// HTML Routes ////////////////////////////
+    //////////////////// HTML Routes //////////////////////////////////////////////////////////////////////
     app.get('/', authController.signin);
     app.get('/signin', authController.signin);
+    app.get('/login', authController.signin);
+    //////////////////// HOME /////////////////////////////////////////////////////////////////////////////
+    app.get('/home', isLoggedIn, authController.home);
 
-    //////////////////// POST NEW USER ////////////////////
+    //////////////////// POST NEW USER ////////////////////////////////////////////////////////////////////
     app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/home',
         failureRedirect: '/signin'
-    }
-    ));
-    //////////////////// HOME ////////////////////////////
-    app.get('/home', isLoggedIn, authController.home);
-
-    //////////////////// LOGOUT ////////////////////////////
+    }));
+    //////////////////// LOGOUT ///////////////////////////////////////////////////////////////////////////
     app.get('/logout', authController.logout);
-    //////////////////// SIGN IN POST ////////////////////////////
+    //////////////////// SIGN IN POST /////////////////////////////////////////////////////////////////////
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/home',
         failureRedirect: '/signin'
     }));
-    //////////////////// TODAY'S JOURNAL ENTRIES////////////////////////////
+
+    //////////////////// TODAY'S JOURNAL ENTRIES///////////////////////////////////////////////////////////
     app.get('/api/todaysjournal', isLoggedIn, function (req, res) {
         var datre = moment().format("YYYY-MM-DD");
         console.log("this is the date used to find todays journal: " + datre);
@@ -49,7 +47,9 @@ module.exports = function (app, passport) {
             res.json(dbmeals);
         })
     });
-    //////////////////// SPECIFIC DATE ENTRIES ////////////////////////////
+    //////////////////// SPECIFIC DATE ENTRIES /////////////////////////////////////////////////////////////
+    //////////////////// date needs to be fixed ////////////////////////////////////////////////////////////
+
     app.get('/api/history/:date', isLoggedIn, function (req, res) {
         console.log(req.params.date)
         var searchdate = req.params.date;
@@ -65,7 +65,7 @@ module.exports = function (app, passport) {
             res.json(dbmeals);
         })
     });
-    //////////////////// POST NEW MEAL ////////////////////////////
+    //////////////////// POST NEW MEAL /////////////////////////////////////////////////////////////////////
     app.post('/api/newmeal', isLoggedIn, function (req, res) {
         console.log(req)
         console.log(req.user.id);

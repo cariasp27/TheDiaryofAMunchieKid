@@ -14,4 +14,4 @@ Munch Much is a Meal Journal Node Application that allows users to log what they
 
  #### Why is There 2 Journals?
  When you log in, you will be met with two journals. The left journal is Today's entries while the journal on the right will remain empty untill you search for journal entries from a specific date. Once a date is submitted the Past Log will populate with journal entries from that day!
- ![login/signup](public/images/homepage.png)
+ ![login/signup](public/images/past.png)

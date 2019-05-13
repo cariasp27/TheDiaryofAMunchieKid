@@ -2,7 +2,7 @@ var path = require("path");
 var exports = module.exports = {}
 
 exports.signin = function (req, res) {
-  res.sendFile(path.join(__dirname, "../public/login.html"));
+  res.sendFile(path.join(__dirname, "../public/signin.html"));
 }
 
 exports.home = function (req, res) {

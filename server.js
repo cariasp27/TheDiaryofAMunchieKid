@@ -1,4 +1,4 @@
-//////////////////// Server Setup /////////////////////////////////
+//////////////////// SERVER SETUP /////////////////////////////////
   var express     = require('express');
   var app         = express();
   var passport    = require('passport');
@@ -14,7 +14,7 @@
 // Serve static content for the app from "/public" 
   app.use(express.static("public"));
 
-////////// Passport & Session Setup //////////////////////////////////////////
+////////// PASSPORT & SESSION SETUP //////////////////////////////////////////
   app.use(session({ 
     secret: 'keyboard cat',
     resave: true,
