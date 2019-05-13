@@ -41,19 +41,24 @@ module.exports = function (app, passport) {
 
     // route for getting journal entries
     app.get('/api/todaysjournal', isLoggedIn, function (req, res) {
-        // var NOW = moment().format("YYYY-MM-DD");
+        var datre = moment("2019-05-13T02:16:07.000Z").format("YYYY-MM-DD");
+        console.log(datre);
+        var ewe = moment.utc().format("YYYY-MM-DD hh:mm:ss");
         db.Meal.findAll({
             where: {
-                createdAt: { [Op.substring]: moment.utc().format("YYYY-MM-DD Z") },
+                createdAt: {[Op.substring]: moment().format("YYYY-MM-DD")},
                 userId: req.user.id
             }
         }).then(function (dbmeals) {
+            console.log(dbmeals);
             res.json(dbmeals);
         })
     });
 
-    app.get('/api/history/', isLoggedIn, function (req, res) {
-        var searchdate = req.body.date;
+    app.get('/api/history', isLoggedIn, function (req, res) {
+        console.log(req.query)
+        
+        var searchdate = req.query.date;
         console.log(searchdate);
         var formatdate = moment(searchdate).format("YYYY-MM-DD");
         console.log(formatdate);
@@ -63,7 +68,7 @@ module.exports = function (app, passport) {
                 userId: req.user.id
             }
         }).then(function (dbmeals) {
-            authController.history
+            res.json(dbmeals);
         })
     });
 
