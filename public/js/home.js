@@ -1,7 +1,12 @@
 $(document).ready(function () {
   /* global moment */
   // grabs the button for routing to Planned Meals
+
   var gotoplanner = $("#goplan");
+
+  $(document).on("click", ".meal", editMeal);
+  // $(document).on("keyup", ".meal", finishEdit);
+  // $(document).on("blur", ".meal", cancelEdit);
 
   // Meallog holds all of our meals
   var Meallog = $("#meallog");
@@ -42,6 +47,23 @@ $(document).ready(function () {
         initializeoldRows();
       });
   };
+
+  function editMeal() {
+    var currentMeal = $(this).data("meal");
+    $(this).children().hide();
+    $(this).children("meal.edit").val(currentMeal.text);
+    $(this).children("meal.edit").show();
+    $(this).children("meal.edit").focus();
+  }
+
+  function finishEdit(event) {
+    var updatedMeal = $(this).data("meal");
+    if (event.which === 13) {
+      updatedTodo.text = $(this).children("input").val().trim();
+      $(this).blur();
+      updateTodo(updatedTodo);
+    }
+  }
 
   // This function grabs TODAY'S meals from the database and updates the view
   function gettodaysMeals(user) {
@@ -88,9 +110,9 @@ $(document).ready(function () {
     
     var newmealTitle = $("<span class='meal'>");
     
-    var newmealFood = $("<span class='food'>")
+    var newmealFood = $("<span class='meal'>")
     
-    var newmealDate = $("<div class='hoverdate' style='display: none'>");
+    var newmealDate = $("<div class='hoverdate'>");
     
     var newmealCardBody = $("<div>");
     

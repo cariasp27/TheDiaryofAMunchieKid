@@ -37,24 +37,41 @@ $(document).ready(function () {
   
     // This function constructs a meal's HTML
     function createNewRow(meal) {
-        debugger;
+      debugger;
+  
       var formattedDate = meal.createdAt;
+      
       formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+      
       var newmealCard = $("<div>");
       newmealCard.addClass("card");
-      var newmealTitle = $("<p>");
-      var newmealFood = $("<small>")
-      var newmealDate = $("<small>");
+      
+      var newmealTitle = $("<span class='meal'>");
+      
+      var newmealFood = $("<span class='food'>")
+      
+      var newmealDate = $("<div class='hoverdate' style='display: none'>");
+      
       var newmealCardBody = $("<div>");
+      
       newmealCardBody.addClass("card-body");
-      newmealFood.text(meal.food + ": ");
-      newmealTitle.text(meal.meal + ": ");
+      
+      newmealFood.text(meal.food + " : ");
+      
+      newmealTitle.text(meal.meal + " : ");
+      
       newmealDate.text(formattedDate);
-      newmealFood.append(newmealDate);
-      newmealTitle.append(newmealFood);
+      
       newmealCardBody.append(newmealTitle);
+  
+      newmealCardBody.append(newmealFood);
+  
+      newmealCardBody.append(newmealDate);
+      
       newmealCard.append(newmealCardBody);
+      
       newmealCard.data("meal", meal);
+      
       return newmealCard;
     }
   });
