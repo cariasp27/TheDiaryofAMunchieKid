@@ -16,6 +16,8 @@ module.exports = function (app, passport) {
     app.get('/', authController.signin);
     app.get('/signin', authController.signin);
     app.get('/login', authController.signin);
+    // meal planner html route
+    app.get('/mealplanner',isLoggedIn, authController.mealplanner);
     //////////////////// HOME /////////////////////////////////////////////////////////////////////////////
     app.get('/home', isLoggedIn, authController.home);
 
@@ -31,8 +33,16 @@ module.exports = function (app, passport) {
         successRedirect: '/home',
         failureRedirect: '/signin'
     }));
-
-    //////////////////// TODAY'S JOURNAL ENTRIES///////////////////////////////////////////////////////////
+    //////////////////// PLANNED JOURNAL ENTRIES ///////////////////////////////////////////////////////////
+    app.get('/api/plannedmeal', isLoggedIn, function (req, res) {
+        db.plannedMeal.findAll({
+            where: { userId: req.user.id }
+        }).then(function (preplannedmeals) {
+            console.log("These are the pre-planned meals: " + preplannedmeals);
+            res.json(preplannedmeals)
+        })
+    })
+    //////////////////// TODAY'S JOURNAL ENTRIES ///////////////////////////////////////////////////////////
     app.get('/api/todaysjournal', isLoggedIn, function (req, res) {
         var datre = moment().format("YYYY-MM-DD");
         console.log("this is the date used to find todays journal: " + datre);
@@ -42,9 +52,9 @@ module.exports = function (app, passport) {
                 createdAt: { [Op.substring]: datre },
                 userId: req.user.id
             }
-        }).then(function (dbmeals) {
-            console.log(dbmeals);
-            res.json(dbmeals);
+        }).then(function (todaysmeals) {
+            console.log("These are the meals from " + datre + ": " + todaysmeals);
+            res.json(todaysmeals);
         })
     });
     //////////////////// SPECIFIC DATE ENTRIES /////////////////////////////////////////////////////////////
@@ -75,6 +85,17 @@ module.exports = function (app, passport) {
             userId: req.user.id
         };
         db.Meal.create(reqwid).then(function (dbmeal) {
+            res.redirect('/home')
+        });
+    });
+    //////////////////// PLANNED JOURNAL ENTRIES ///////////////////////////////////////////////////////////
+    app.post('/api/newplannedmeal', isLoggedIn, function (req, res) {
+        var newplan = {
+            meal: req.body.meal,
+            food: req.body.food,
+            userId: req.user.id
+        };
+        db.plannedMeal.create(newplan).then(function (dbmeal) {
             res.redirect('/home')
         });
     });

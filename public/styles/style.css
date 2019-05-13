@@ -36,6 +36,9 @@ body {
   overflow: auto;
   height: 350px;
 }
+#plannedmealjournal {
+  margin: auto;
+}
 #pastlog {
   padding: 10px;
   overflow: auto;

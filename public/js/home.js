@@ -1,5 +1,7 @@
 $(document).ready(function () {
   /* global moment */
+  // grabs the button for routing to Planned Meals
+  var gotoplanner = $("#goplan");
 
   // Meallog holds all of our meals
   var Meallog = $("#meallog");
@@ -12,6 +14,10 @@ $(document).ready(function () {
   var pastmeals;
   // upon pageload, run GET to generate journal for Today
   gettodaysMeals();
+  // When a user clicks on the Start Planning button, they are redirected.
+  $(gotoplanner).on("click", function(event){
+    event.preventDefault();
+  });
   // When a user submits a date, use it to find journal entries on that date
   $("#pastjournal").on("submit", function (event) {
     console.log(searchdate);
