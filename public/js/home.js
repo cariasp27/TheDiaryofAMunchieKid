@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
   /* global moment */
 
@@ -92,5 +90,4 @@ $(document).ready(function () {
     newmealCard.data("meal", meal);
     return newmealCard;
   }
-
 });

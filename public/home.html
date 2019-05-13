@@ -11,26 +11,26 @@
 </head>
 
 <body>
-
     <div class="row">
         <div class="col-md-5">
+                                <!-- TODAY'S MEAL JOURNAL -->
             <div class="journal">
-                <h1 class="text-center"><span class="fa fa-fire"></span> Add a Meal!</h1>
+                <h1 class="text-center">Add a Meal!</h1>
                 <h2 class="text-center">Log your meals to your personalized journal here! </h2>
                 <hr>
                 <center>
+                                <!-- FORM FOR POSTING NEW MEAL-->
                     <form id="newmeal" name="newmeal" method="POST" action="/api/newmeal">
                         <label for="meal">Meal:</label>
                         <input class="text" id="meal" name="meal" type="text" />
-                        <label for="Food">Food</label>
+                        <br>
+                        <label for="Food">Description:</label>
                         <input name="food" id="food" type="text" />
                         <button type="submit" id="logmeal">Log Meal</button>
                     </form>
                 </center>
                 <br>
                 <div id="meallog"></div>
-
-
             </div>
         </div>
         <div class="col-md-4">
@@ -46,8 +46,6 @@
                 </center>
                 <br>
                 <div id="pastlog"></div>
-
-
             </div>
         </div>
         <div class="col-md-3">

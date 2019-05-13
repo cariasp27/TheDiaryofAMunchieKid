@@ -8,6 +8,9 @@ exports.signin = function (req, res) {
 exports.home = function (req, res) {
   res.sendFile(path.join(__dirname, "../public/home.html"));
 }
+exports.mealplanner = function (req, res) {
+  res.sendFile(path.join(__dirname, "../public/mealplanner.html"));
+}
 
 exports.logout = function (req, res) {
 
