@@ -11,9 +11,10 @@ body {
 .hoverdate { 
   display: none;
   position: absolute;
-  top: 50px;
-  left: 50px;
-  background: rgba(50,50,50,1);
+  top: 5px;
+  left: 5px;
+  color: black;
+  background: rgb(247, 247, 227);
   border: 1px solid black;
   z-index: 5;
 }
