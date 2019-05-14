@@ -109,6 +109,8 @@ $(document).ready(function () {
     newmealCard.addClass("card");
     
     var newmealTitle = $("<span class='meal'>");
+
+    var deleteButton = $("<span class='close' id='dlt'>&times;</span>")
     
     var newmealFood = $("<span class='meal'>")
     
@@ -118,7 +120,7 @@ $(document).ready(function () {
     
     newmealCardBody.addClass("card-body");
     
-    newmealFood.text(meal.food + " : ");
+    newmealFood.text(meal.food + " ");
     
     newmealTitle.text(meal.meal + " : ");
     
@@ -129,6 +131,8 @@ $(document).ready(function () {
     newmealCardBody.append(newmealFood);
 
     newmealCardBody.append(newmealDate);
+
+    newmealCardBody.append(deleteButton);
     
     newmealCard.append(newmealCardBody);
     

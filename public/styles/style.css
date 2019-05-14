@@ -7,18 +7,27 @@ body {
     height: 100%
                }
 .card {
-  height: 25px;
+  height: 30px;
   width: fit-content;
+  margin: 1%;
+  align-items: center;
+}
+#dlt {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .hoverdate { 
+  max-height: 30px;
   display: none;
-  position: absolute;
-  bottom: 0px;
+  position: sticky;
+  bottom: -25px;
   left: 250px;
   color: black;
   background: rgb(247, 247, 227);
   border: 1px solid black;
-  z-index: 5;
+  z-index: 9;
+  width:fit-content;
 }
 .card-body:hover > .hoverdate {
   display: block;
@@ -31,6 +40,7 @@ body {
   padding: 0;
   margin-left: 25px;
   margin-right: 25px;
+
 }
  .container {
     width: auto;
@@ -53,7 +63,6 @@ body {
  } */
 #meallog {
   padding: 10px;
-  overflow: auto;
   height: 350px;
 }
 #planlog {
@@ -73,7 +82,6 @@ footer {
 }
 #pastlog {
   padding: 10px;
-  overflow: auto;
   height: 350px;
 }
 #formholder {
@@ -95,6 +103,10 @@ font-size: 20px;
 padding:8px 0;
 margin: 8px 0;
 border-bottom: 1px solid black;
+}
+#meal {
+  position: relative;
+  right: 0;
 }
 /* The Modal (background) */
 .modal {
@@ -184,6 +196,7 @@ border-bottom: 1px solid black;
  .label{
    font-size: 50px;
    font-family: sans-serif;
+
  }
  .left, .right {
   float: left;
@@ -200,10 +213,4 @@ border-bottom: 1px solid black;
   .left, .main, .right {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
-  #login {
-    position: sticky;
-    bottom: 0;
-    right: 0;
-  }
-
 }
