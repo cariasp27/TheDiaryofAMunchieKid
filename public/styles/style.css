@@ -12,7 +12,7 @@ body {
   display: none;
   position: absolute;
   top: 5px;
-  left: 5px;
+  right:20px;
   color: black;
   background: rgb(247, 247, 227);
   border: 1px solid black;
