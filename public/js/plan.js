@@ -48,9 +48,9 @@ $(document).ready(function () {
       
       var newmealTitle = $("<span class='meal'>");
       
-      var newmealFood = $("<span class='food'>")
+      var newmealFood = $("<span class='meal'>")
       
-      var newmealDate = $("<div class='hoverdate' style='display: none'>");
+      var newmealDate = $("<div class='hoverdate'>");
       
       var newmealCardBody = $("<div>");
       
@@ -75,4 +75,3 @@ $(document).ready(function () {
       return newmealCard;
     }
   });
-  

@@ -36,31 +36,35 @@
         <form id="signup" name="signup" method="post" action="/signup">
           <label for="username">Username</label>
           <input class="text" name="username" type="username" />
+          <br>
           <label for="password">Password</label>
           <input name="password" type="password" />
-          <input class="btn btn-success" type="submit" value="Sign Up" />
+          <br>
+          <center><input class="btn btn-success" type="submit" value="Sign Up" /></center>
         </form>
       </center>
     </div>
 
   </div>
   <div id="signin">
-    <h1>Sign In</h1>
+    <center><h1>Sign In</h1></center>
     <center>
       <form id="signin" name="signin" method="post" action="/signin">
         <label>Username</label>
         <input type="text" placeholder="" name="username" id="username">
+        <br>
         <label>Password</label>
         <input type="password" placeholder="" name="password" id="password">
-        <input class="btn btn-success" type="submit" value="Sign In" />
+        <br>
+        <input class="btn btn-success" type="submit" value="Sign In" id="login" />
       </form>
       <br>
       <hr>
-      <button class="btn btn-success" id="myBtn">Sign Up Now!</button>
     </center>
     </div>
-
-
+    <footer>
+    <button class="btn btn-success" id="myBtn">Sign Up!</button>
+    </footer>
 </body>
 <script>// Get the modal
   var modal = document.getElementById('myModal');
