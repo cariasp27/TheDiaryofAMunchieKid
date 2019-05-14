@@ -1,6 +1,5 @@
 {
   "development": {
-
     "username": "root",
     "password": "Pikapee889900seven",
     "database": "sequelize_passport",
@@ -17,6 +16,7 @@
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
+    "host": "y5s2h87f6ur56vae.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "timezone": "-04:00"
   }
