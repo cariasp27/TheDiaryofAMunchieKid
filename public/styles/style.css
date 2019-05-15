@@ -72,6 +72,7 @@ height: 100%
    margin:auto;
    color: white;
  }
+ /* ICEBOX */
  /* #signin {
   height: 1280px;
   background: url(../images/Journal.png) no-repeat;
@@ -223,13 +224,37 @@ border-bottom: 1px solid black;
   width: 60%; /* The width is 60%, by default */
 }
 
-/* Use a media query to add a breakpoint at 800px: */
-@media screen and (max-width: 800px) {
+/* Use a media query to add a breakpoint at 1280px: */
+@media screen and (max-width: 1280px) {
   .left, .main, .right {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    width: 100%; /* The width is 100%, when the viewport is 1280px or smaller */
+  }
+  #MM {
+    height: 270px;
+    width: 338px;
+    margin: auto;
+  }
+}
+
+/* Use a media query to add a breakpoint at 999px: */
+@media screen and (max-width: 999px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 999px or smaller */
   }
   #MM {
     height: 216px;
     width: 270px;
+    margin: auto;
+  }
+}
+
+/* Use a media query to add a breakpoint at 600px: */
+@media screen and (max-width: 600px) {
+  .left, .main, .right {
+    width: 100%; /* The width is 100%, when the viewport is 600px or smaller */
+  }
+  #MM {
+    height: 180px;
+    width: 225px;
   }
 }

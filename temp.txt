@@ -1,0 +1,2 @@
+JAWSDB_URL='mysql://lubichxo413uiu5f:fd8s4tc0tpjtspjw@y5s2h87f6ur56vae.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dk76l7yesxbvd5y9'
+JAWSDB_URL='mysql://lubichxo413uiu5f:fd8s4tc0tpjtspjw@y5s2h87f6ur56vae.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/dk76l7yesxbvd5y9'
