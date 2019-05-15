@@ -1,8 +1,11 @@
 # Munch Much?
-Munch Much is a Meal Journal Node Application that allows users to log what they eat when they eat it! It was built using the Express Framework as well as the following technologies..
- -MySQL
- -Passport
- -Sequelize
+Munch Much is a Meal Journal Node Application that allows users to log what they eat when they eat it! It was built using the Express Framework as well as the following technologies...
+
+ *Moment.js
+ *MySQL
+ *Passport.js
+ *Sequelize
+ 
 
  ## What is Munch Much?
  At it's core, Munch Much is a web based Food Journal that allows users to log meals, snacks, or drinks! When a new meal is logged it is saved with a timestamp that you can use to recall past journal entries based on date!

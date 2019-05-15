@@ -77,7 +77,6 @@ $(document).ready(function () {
 
   // This function constructs a meal's HTML
   function createNewRow(meal) {
-    debugger;
 
     var formattedDate = meal.createdAt;
     

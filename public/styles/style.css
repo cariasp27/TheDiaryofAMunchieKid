@@ -1,22 +1,39 @@
 body {
-     background: url(../images/background.png) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%
-               }
+background: url(../images/background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+background-size: cover;
+height: 100%
+}
+.btn {
+  background-image: url(../images/emerald.jpg);
+}
 .card {
   height: 30px;
   width: fit-content;
   margin: 1%;
   align-items: center;
 }
-#dlt {
+
+.card-body {
+  padding: 0;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.card-body:hover > .hoverdate {
+  display: block;
+}
+
+
+/*
+  ICEBOX
+  #dlt {
   position: absolute;
   right: 0;
   top: 0;
-}
+} */
+
 .hoverdate { 
   max-height: 30px;
   display: none;
@@ -32,31 +49,16 @@ body {
 #MM {
   height: 360px;
   width: 450px;
-  position: absolute;
-  left: -25px ;
-  top: 0;
-}
-.card-body:hover > .hoverdate {
-  display: block;
 }
 .row {
   max-width: 100%;
   margin: auto;
 }
-.card-body {
-  padding: 0;
-  margin-left: 25px;
-  margin-right: 25px;
 
-}
 #info {
   padding-top: 10%;
 }
- .container {
-    width: auto;
-    
-    color: black;
- }
+
  .jumbotron {
    background-image: url(../images/emerald.jpg);
    padding-left: 5%;
@@ -84,9 +86,7 @@ body {
   overflow: auto;
   height: 400px;
 }
-.btn {
-  background-image: url(../images/emerald.jpg);
-}
+
 footer { 
   position: sticky;
   bottom: 0;

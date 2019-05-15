@@ -24,7 +24,6 @@ $(document).ready(function () {
 
   // initializeplannedRows handles appending all of our constructed meal HTML inside Plan Log
   function initializeplannedRows() {
-    debugger;
     Planlog.empty();
     var plannedmealstoadd = [];
     for (var i = 0; i < plannedmeals.length; i++) {
@@ -35,8 +34,7 @@ $(document).ready(function () {
 
   // This function constructs a meal's HTML
   function createNewRow(meal) {
-    debugger;
-
+    
     var formattedDate = meal.createdAt;
 
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
