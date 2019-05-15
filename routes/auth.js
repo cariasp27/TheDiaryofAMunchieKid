@@ -10,7 +10,7 @@ module.exports = function (app, passport) {
         if (req.isAuthenticated()) {
             return next();
         } else { 
-            console.log("Unauthorized to access")
+            console.log("NOPE")
             res.redirect('/signin') };
     }
     //////////////////// HTML Routes //////////////////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ module.exports = function (app, passport) {
         var NOW = moment().format("YYYY-MM-DD");
         db.Meal.findAll({
             where: {
-                createdAt: { [Op.substring]: datre },
+                createdAt: { [Op.substring]: NOW },
                 userId: req.user.id
             }
         }).then(function (todaysmeals) {
