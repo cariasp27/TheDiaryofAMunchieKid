@@ -29,6 +29,13 @@ body {
   z-index: 9;
   width:fit-content;
 }
+#MM {
+  height: 360px;
+  width: 450px;
+  position: absolute;
+  left: -25px ;
+  top: 0;
+}
 .card-body:hover > .hoverdate {
   display: block;
 }
@@ -42,18 +49,26 @@ body {
   margin-right: 25px;
 
 }
+#info {
+  padding-top: 10%;
+}
  .container {
     width: auto;
     
     color: black;
  }
  .jumbotron {
-   padding: 0;
+   background-image: url(../images/emerald.jpg);
+   padding-left: 5%;
+   padding-right: 5%;
+   padding-bottom: 0;
+   padding-top: 0;
    height: 25%;
    border-bottom-left-radius: 50px;
    border-bottom-right-radius: 50px;
    width: 75%;
    margin:auto;
+   color: white;
  }
  /* #signin {
   height: 1280px;
@@ -212,5 +227,9 @@ border-bottom: 1px solid black;
 @media screen and (max-width: 800px) {
   .left, .main, .right {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  #MM {
+    height: 216px;
+    width: 270px;
   }
 }

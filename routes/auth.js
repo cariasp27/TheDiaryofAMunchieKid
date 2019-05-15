@@ -88,6 +88,16 @@ module.exports = function (app, passport) {
             res.redirect('/home')
         });
     });
+    //////////////////// DELETE MEAL ///////////////////////////////////////////////////////////////////////
+    app.delete('/api/deletemeal', isLoggedIn, function(req, res){
+        db.Meal.destroy({
+            where: {
+                id: req.body.id
+            }
+        }).then(function(data){
+            location.reload();
+        })
+    })
     //////////////////// PLANNED JOURNAL ENTRIES ///////////////////////////////////////////////////////////
     app.post('/api/newplannedmeal', isLoggedIn, function (req, res) {
         var newplan = {
